@@ -189,15 +189,21 @@ class MixtureDensityNetwork2(tf.Module):
         if training_weights is None:
             training_weights = tf.ones((training_variables.shape[0], 1), dtype=tf.float32)
 
+                # create and shuffle the dataset
+        dataset = tf.data.Dataset.from_tensor_slices((training_conditionals, training_variables, training_weights)) #.shuffle(n_total)
+        # training / validation split
+        training_set = dataset.take(n_training).batch(batch_size).shuffle(n_total)
+        validation_set = dataset.skip(n_training).batch(n_validation).shuffle(n_total)
+
         with trange(epochs) as t:
             for epoch in t:
 
                 # create and shuffle the dataset
-                dataset = tf.data.Dataset.from_tensor_slices((training_conditionals, training_variables, training_weights)).shuffle(n_total)
+                #dataset = tf.data.Dataset.from_tensor_slices((training_conditionals, training_variables, training_weights)) #.shuffle(n_total)
 
                 # training / validation split
-                training_set = dataset.take(n_training).batch(batch_size)
-                validation_set = dataset.skip(n_training).batch(n_validation)
+                #training_set = dataset.take(n_training).shuffle(n_total).batch(batch_size)
+                #validation_set = dataset.skip(n_training).shuffle(n_total).batch(n_validation)
 
                 # loop over batches for a single epoch
                 for conditionals, outputs, weights in training_set:
