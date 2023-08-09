@@ -10,7 +10,7 @@ import scipy.optimize as optimization
 from scipy.stats import multivariate_normal
 import pickle
 
-from . import priors, ndes, train
+from mydelfi import priors, ndes, train
 
 class Delfi():
 
