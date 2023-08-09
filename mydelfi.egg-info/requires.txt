@@ -1,0 +1,9 @@
+numpy
+scipy
+matplotlib
+tqdm
+pandas
+seaborn
+chainconsumer
+tensorflow>=2.7
+tensorflow_probability

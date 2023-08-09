@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+mydelfi/__init__.py
+mydelfi/affine.py
+mydelfi/mdn.py
+mydelfi/ndes.py
+mydelfi/plotting.py
+mydelfi.egg-info/PKG-INFO
+mydelfi.egg-info/SOURCES.txt
+mydelfi.egg-info/dependency_links.txt
+mydelfi.egg-info/not-zip-safe
+mydelfi.egg-info/requires.txt
+mydelfi.egg-info/top_level.txt
