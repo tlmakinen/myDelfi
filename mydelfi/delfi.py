@@ -1,8 +1,8 @@
 import tensorflow as tf
 import getdist
 from getdist import plots, MCSamples
-import pydelfi.ndes
-import pydelfi.train
+import mydelfi.ndes
+import mydelfi.train
 import emcee
 import matplotlib.pyplot as plt
 import matplotlib as mpl
