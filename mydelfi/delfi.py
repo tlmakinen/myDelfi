@@ -62,7 +62,8 @@ class Delfi():
         # Initialize the NDEs, trainers, and stacking weights (for stacked density estimators)
         self.n_ndes = len(nde)
         self.nde = nde
-        self.trainer = [mydelfi.train.ConditionalTrainer(nde[i]) for i in range(self.n_ndes)]
+        #self.trainer = [mydelfi.train.ConditionalTrainer(nde[i]) for i in range(self.n_ndes)]
+        self.models = [nde[i] for i in range(self._ndes)]
         self.stacking_weights = np.zeros(self.n_ndes)
 
         # Tensorflow session for the NDE training
@@ -506,7 +507,7 @@ class Delfi():
         # Train the networks
         for n in range(self.n_ndes):
             # Train the NDE
-            val_loss, train_loss = self.trainer[n].train(training_data, validation_split = validation_split, epochs=epochs, batch_size=batch_size, progress_bar=self.progress_bar, patience=patience, saver_name=self.graph_restore_filename, mode=mode)
+            val_loss, train_loss = self.models[n].fit(training_data, validation_split = validation_split, epochs=epochs, batch_size=batch_size, patience=patience) # mode, filename
 
             # Save the training and validation losses
             self.training_loss[n] = np.concatenate([self.training_loss[n], train_loss])

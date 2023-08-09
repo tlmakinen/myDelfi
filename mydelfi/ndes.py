@@ -293,7 +293,7 @@ class MSEUtilityNetworkEnsemble(tf.Module):
         return loss
     
     # train all members of the ensemble
-    def train(self, training_data, epochs=1000, batch_size=128, validation_split=0.2, patience=20):
+    def fit(self, training_data, epochs=1000, batch_size=128, validation_split=0.2, patience=20):
         
         # validation and training samples sizes
         n_total = int(training_data[0].shape[0])
@@ -446,7 +446,7 @@ class GaussianUtilityNetworkEnsemble(tf.Module):
         return loss
     
     # train all members of the ensemble
-    def train(self, training_data, epochs=1000, batch_size=128, validation_split=0.2, patience=20):
+    def fit(self, training_data, epochs=1000, batch_size=128, validation_split=0.2, patience=20):
         
         # validation and training samples sizes
         n_total = int(training_data[0].shape[0])
@@ -611,7 +611,7 @@ class GaussianMixtureUtilityNetworkEnsemble(tf.Module):
         return loss
     
     # train all members of the ensemble
-    def train(self, training_data, epochs=1000, batch_size=128, validation_split=0.2, patience=20):
+    def fit(self, training_data, epochs=1000, batch_size=128, validation_split=0.2, patience=20):
         
         # validation and training samples sizes
         n_total = int(training_data[0].shape[0])
