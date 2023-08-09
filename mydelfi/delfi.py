@@ -1,17 +1,18 @@
 import tensorflow as tf
 import getdist
 from getdist import plots, MCSamples
-import mydelfi.ndes
-import mydelfi.train
 import emcee
 import matplotlib.pyplot as plt
 import matplotlib as mpl
-import mydelfi.priors as priors
 import numpy as np
 from tqdm.auto import tqdm
 import scipy.optimize as optimization
 from scipy.stats import multivariate_normal
 import pickle
+
+from . import ndes
+from . import train
+from . import priors
 
 class Delfi():
 
